@@ -1,6 +1,8 @@
 # WordPress Snippets
 This document is designed to be a one-stop quick reference of useful WordPress code snippets.
 
+This repository is licensed under the MIT license.
+
 The focus is to reference the common, though perhaps not-so-obvious hooks and functions used in everyday theme development. My hope is that over time I will be able to add to this reference as I am able, and as I come across more useful bits in my day to day work.
 
 Reference links will be provided where possible. Much content will come straight from the [WordPress Codex](http://codex.wordpress.org/), as well as [underscores](http://underscores.me/).

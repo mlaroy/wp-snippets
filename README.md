@@ -3,7 +3,7 @@ This document is designed to be a one-stop quick reference of useful WordPress c
 
 The focus is to reference the common, though perhaps not-so-obvious hooks and functions used in everyday theme development. My hope is that over time I will be able to add to this reference as I am able, and as I come across more useful bits in my day to day work.
 
-Reference links will be provided where possible. Much content will come straight from the [WordPress Codex][http://codex.wordpress.org/], as well as [underscores][http://underscores.me/].
+Reference links will be provided where possible. Much content will come straight from the [WordPress Codex](http://codex.wordpress.org/), as well as [underscores](http://underscores.me/).
 
 ##### What this is not
 This reference guide is not intended to provide in-depth tutorials or walk-throughs, or be an exhaustive development guide. However, it will seek to add explanations and provide commented code where it may be appropriate.

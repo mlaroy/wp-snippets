@@ -57,7 +57,7 @@ add_action( 'wp_enqueue_scripts', 'yourtheme_scripts' );
 ## Widgets
 To create a place for widgets (for example, to appear in a sidebar). The `register_sidebar()` function will enable your new widget area called 'Sidebar' in the widgets section of the WordPress admin:
 ```
-function themename_widgets_init() {
+function yourtheme_widgets_init() {
     register_sidebar( array(
         'name'          => esc_html__( 'Sidebar', 'yourtheme' ),
         'id'            => 'sidebar-1',

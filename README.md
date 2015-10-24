@@ -186,6 +186,6 @@ add_action('manage_posts_custom_column', 'show_featured_image', 5, 2);
 add_action('manage_work_custom_column', 'show_featured_image', 5, 2);   
 ```
 
-[https://codex.wordpress.org/Plugin_API/Action_Reference/manage_posts_custom_column][https://codex.wordpress.org/Plugin_API/Action_Reference/manage_posts_custom_column]
+[https://codex.wordpress.org/Plugin_API/Action_Reference/manage_posts_custom_column](https://codex.wordpress.org/Plugin_API/Action_Reference/manage_posts_custom_column)
 
 ## Theme Setup

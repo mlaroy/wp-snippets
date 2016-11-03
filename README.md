@@ -198,5 +198,5 @@ To use an email address different from your site administrator's email address, 
 function mail_from ($email ){
   return 'address@domain.com'; // new email address from sender.
 }
-add_filter( 'wp_mail_from', mail_from' );
+add_filter( 'wp_mail_from', 'mail_from' );
 ```

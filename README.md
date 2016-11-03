@@ -11,7 +11,7 @@ Reference links will be provided where possible. Much content will come straight
 This reference guide is not intended to provide in-depth tutorials or walk-throughs, or be an exhaustive development guide. However, it will seek to add explanations and provide commented code where it may be appropriate.
 
 ### How this guide works
-Throughout this guide, many functions will be written like: 
+Throughout this guide, many functions will be written like:
 ```
 function yourtheme_function(){
     // insert magic here
@@ -30,7 +30,7 @@ Unless otherwise specified, functions are to be placed within your **functions.p
 ## Basic Page Template
 This template provides the basic generic building blocks of a WordPress page. Assuming you already have a **header.php** and a **footer.php** file with appropriate code in each.
 ```
-<?php 
+<?php
 get_header();
 
 // the WordPress loop
@@ -73,7 +73,7 @@ function yourtheme_widgets_init() {
 add_action( 'widgets_init', 'yourtheme_widgets_init' );
 ```
 
-In your theme template files, add this code where you wish your widget area to appear, checking if it is active, and calling it by its ID: 
+In your theme template files, add this code where you wish your widget area to appear, checking if it is active, and calling it by its ID:
 ```
 if ( is_active_sidebar( 'sidebar-1' ) ) :
     dynamic_sidebar( 'sidebar-1' );
@@ -95,7 +95,7 @@ function my_login_logo() { ?>
 <?php }
 add_action( 'login_enqueue_scripts', 'my_login_logo' );
 
-// replace the link to WordPress 
+// replace the link to WordPress
 function my_login_logo_url() {
     return get_bloginfo( 'url' );
 }
@@ -167,25 +167,36 @@ $field = get_field('custom_field', 'options');
 Show the Featured Image in the admin pages:
 ```
 // add a new column to your admin pages list of posts
-function add_posts_columns($columns){  
-    $columns['post_thumbs'] = __('Featured Image');  
-    return $defaults;  
-}  
-add_filter('manage_posts_columns', 'add_posts_columns', 5); 
+function add_posts_columns($columns){
+    $columns['post_thumbs'] = __('Featured Image');
+    return $defaults;
+}
+add_filter('manage_posts_columns', 'add_posts_columns', 5);
 
 // for a custom post type of 'work':
-add_filter('manage_work_posts_columns', 'add_posts_columns', 5); 
-  
+add_filter('manage_work_posts_columns', 'add_posts_columns', 5);
+
 // output the Featured Image
-function show_featured_image($column_name, $id){  
-    if($column_name === 'post_thumbs'){  
-        echo the_post_thumbnail( 'admin-thumb' );  
-    }  
-}  
-add_action('manage_posts_custom_column', 'show_featured_image', 5, 2);  
+function show_featured_image($column_name, $id){
+    if($column_name === 'post_thumbs'){
+        echo the_post_thumbnail( 'admin-thumb' );
+    }
+}
+add_action('manage_posts_custom_column', 'show_featured_image', 5, 2);
 
 // for a custom post type of 'work':
-add_action('manage_work_custom_column', 'show_featured_image', 5, 2);   
+add_action('manage_work_custom_column', 'show_featured_image', 5, 2);
 ```
 
 [https://codex.wordpress.org/Plugin_API/Action_Reference/manage_posts_custom_column](https://codex.wordpress.org/Plugin_API/Action_Reference/manage_posts_custom_column)
+
+
+## Custom Mail Sender
+To use an email address different from your site administrator's email address, use this function:
+
+```
+function mail_from ($email ){
+  return 'address@domain.com'; // new email address from sender.
+}
+add_filter( 'wp_mail_from', mail_from' );
+```

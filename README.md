@@ -199,7 +199,7 @@ function mail_from ($email ){
   return 'address@domain.com'; // new email address from sender.
 }
 add_filter( 'wp_mail_from', 'mail_from' );
-
+```
 
 ## Add Attachments (images) to Search
 

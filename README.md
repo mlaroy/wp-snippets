@@ -199,4 +199,31 @@ function mail_from ($email ){
   return 'address@domain.com'; // new email address from sender.
 }
 add_filter( 'wp_mail_from', 'mail_from' );
+
+
+## Add Attachments (images) to Search
+
+```
+function add_attachment_to_search( $query ) {
+  if ( $query->is_search ) {
+    // add attachment to the post types allowed in search results
+    $query->set( 'post_type', array( 'post', 'attachment' , 'region', 'project', 'watershed') );
+    $query->set( 'post_status', array( 'publish', 'inherit' ) );
+  }
+  return $query;
+}
+add_filter( 'pre_get_posts', 'add_attachment_to_search' );
+```
+
+## Limit Attachment Search Results
+To have search exclude images, but include other document types, you need to add a filter.
+
+[http://wordpress.stackexchange.com/questions/209712/how-do-i-exclude-all-images-from-a-wp-query/209714](http://wordpress.stackexchange.com/questions/209712/how-do-i-exclude-all-images-from-a-wp-query/209714)
+```
+function remove_images($where) {
+    global $wpdb;
+    $where.=' AND '.$wpdb->posts.'.post_mime_type NOT LIKE \'image/%\'';
+    return $where;
+}
+add_filter( 'posts_where' , 'remove_images' );
 ```

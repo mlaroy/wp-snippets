@@ -232,6 +232,8 @@ Use package.json to bust the browser's cache of your assets. This adds a version
 
 In your wp-config.php file:
 ```
+define('CACHE_BUST', true);
+
 if (!defined('ABSPATH')) {
   define('ABSPATH', dirname(__FILE__) . '/');
 }

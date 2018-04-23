@@ -227,3 +227,25 @@ function remove_images($where) {
 }
 add_filter( 'posts_where' , 'remove_images' );
 ```
+## Cache Busting
+Use package.json to bust the browser's cache of your assets. This adds a version suffix to your asset file, which will get updated any time you bump the release version as defined in your package.son
+
+In your wp-config.php file:
+```
+if (!defined('ABSPATH')) {
+  define('ABSPATH', dirname(__FILE__) . '/');
+}
+```
+
+In your functions.php file:
+```
+// Get package version for cache busting
+  $version = false;
+  if (CACHE_BUST) {
+    $string = file_get_contents(ABSPATH . '/package.json');
+    $json_a = json_decode($string, true);
+    $version = $json_a['version'];
+  }
+
+  wp_enqueue_style('styles', get_stylesheet_directory_uri() . 'dist/styles.min.css'), [], $version, null);
+```
